@@ -90,12 +90,21 @@ Both are pulled from Google Fonts in [index.html](index.html#L7-8).
 
 ## 🎙️ Session Notes (known state / B-sides)
 
+This build was diffed line-for-line against the live `skyluxemusic.base44.app` (DOM, computed styles, network requests) via Chrome DevTools/Playwright, so it now matches the source: fixed nav that glasses-over on scroll, the centered orbiting hero, the horizontal-scroll Vault "shelf," and the on-hover Showcase bios all mirror the original markup and CSS values pulled straight from base44's stylesheet.
+
 Liner notes for whoever picks this up next:
 
-- **Guest list form is a stub.** [script.js](script.js#L21-28) intercepts the submit, shows a confirmation message, and resets the form — it does **not** send anywhere yet. Wire it to a real endpoint (a Cloudflare Pages Function, Netlify Form, or any small API) before relying on it to capture invitations.
-- **Showcase artwork is hot-linked** to `media.base44.com` URLs (see [index.html](index.html#L163-179)). If that host goes away, those three cards go dark — worth vendoring the images locally.
-- **`.placeholder-art`** in [styles.css](styles.css#L97-102) is the fallback gradient used anywhere art hasn't been supplied yet (release/vault/ebook art). Swap in real cover art by replacing those elements with `<img>`/background-image as assets become available.
-- Play/download buttons across the catalog are visual only — no audio player or checkout is wired up yet.
+- **Guest list form is a stub.** [script.js](script.js) intercepts the submit, shows a confirmation message, and resets the form — it does **not** send anywhere yet. Wire it to a real endpoint (a Cloudflare Pages Function, Netlify Form, or any small API) before relying on it to capture invitations. (The live base44 site has the same limitation server-side — it's their auth-gated backend, not something to port.)
+- **Showcase artwork is hot-linked** to `media.base44.com` URLs (see [index.html](index.html)). Those load fine today but the host is base44's — vendor the three images locally before cutting base44 loose entirely.
+- **`.placeholder-art`** in [styles.css](styles.css) is the fallback gradient used for release/vault/ebook art. This isn't a shortcut — **the live site's own cover-art `<img src>` fields are broken**, populated with the tracks' storefront URLs instead of image files (a base44 data-entry bug, confirmed via DevTools: `naturalWidth: 0` on every one). We recovered real value from that bug: those URLs are now wired up as the actual **Buy** links —
+  - *Relax with Jazz* → Apple Music
+  - *Soul Snatcher* → SoundCloud
+  - *Wet-Wet* → Apple Music
+  - *Body Collision* → Apple Music
+  Swap in real cover-art images whenever they're available; the buy links can stay as-is.
+- **Ebook download link is unresolved.** The live site's Gumroad URL is corrupted (`Ckjkretail.gumroad.com/l/qsnmvh` — no protocol, mystery prefix). The button in [index.html](index.html) is left as `href="#"` with a `TODO` comment; drop the real Gumroad/Stripe link in before launch.
+- **No checkout backend.** base44's "Buy"/"Download" buttons open a proprietary **Concierge Checkout** drawer that posts to base44's own Payments API (confirmed by clicking through — it renders a cart summary and a "Pay $X" button backed by their infra). That can't be ported as-is. This build instead links Buy/Download straight out to the real storefronts (Apple Music, SoundCloud, Gumroad) — the honest static-site equivalent. If you want an in-page cart experience on Cloudflare, that's a Worker + Stripe Payment Links / Checkout Sessions project, not a copy-paste.
+- Play/preview buttons across the catalog are visual only — no audio player is wired up (the live site doesn't appear to have real preview clips either).
 
 ---
 
