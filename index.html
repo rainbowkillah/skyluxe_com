@@ -4,21 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sky Luxe — Sonic Stratosphere</title>
+<meta name="description" content="A digital sanctuary where high-fidelity sound meets celestial luxury. Press play and drift.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
-<header class="nav">
-  <a href="/" class="logo"><span class="dot"></span>SKY LUXE</a>
-  <nav class="nav-links">
-    <a href="#vault">The Vault</a>
-    <a href="#showcase">Showcase</a>
-    <a href="#guest-list">Guest List</a>
-  </nav>
-  <a href="#guest-list" class="btn btn-outline btn-sm">Become a Guest</a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="dot"></span>SKY LUXE</a>
+    <nav class="nav-links">
+      <a href="#vault">The Vault</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#guest-list">Guest List</a>
+    </nav>
+    <a href="#guest-list" class="btn btn-outline-muted btn-sm">Become a Guest</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
 </header>
 
 <section class="hero">
@@ -26,57 +29,114 @@
   <div class="hero-gradient"></div>
   <div class="hero-vignette"></div>
   <div class="hero-content">
-    <div class="row-between">
-      <p class="eyebrow">Atmospheric Marketplace of Sound</p>
-      <button class="btn btn-dark" id="enterSoundscape"><span class="icon-play"></span>Enter the Soundscape</button>
+    <div class="orbit-wrap">
+      <span class="orbit-ring orbit-ring-1" aria-hidden="true"><span class="orbit-dot"></span></span>
+      <span class="orbit-ring orbit-ring-2" aria-hidden="true"><span class="orbit-dot orbit-dot-dim"></span></span>
+      <div class="hero-stack">
+        <p class="eyebrow">Atmospheric Marketplace of Sound</p>
+        <h1 class="display-xl gradient-text">Sky Luxe</h1>
+        <p class="script-line">Sonic Stratosphere</p>
+      </div>
     </div>
-    <h1 class="display-xl">Sky Luxe</h1>
-    <p class="script-line">Sonic Stratosphere</p>
+    <button class="btn btn-glass" id="enterSoundscape">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+      Enter the Soundscape
+    </button>
     <p class="lede">A digital sanctuary where high-fidelity sound meets celestial luxury.<br>Press play and drift.</p>
-    <div class="scroll-hint"><span class="icon-volume"></span>Scroll to Stratosphere</div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll to Stratosphere</span>
+    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path></svg>
   </div>
 </section>
 
 <section class="section" id="new-releases">
   <div class="section-head">
     <div>
-      <p class="eyebrow">❋ Fresh Currents</p>
+      <p class="eyebrow">
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+        Fresh Currents
+      </p>
       <h2 class="display-lg">New Releases</h2>
     </div>
     <p class="section-note">The latest transmissions from the stratosphere.</p>
   </div>
 
-  <div class="grid grid-4">
-    <article class="release-card">
-      <div class="release-art placeholder-art"><span class="badge">Album</span><button class="play-dot"><span class="icon-play"></span></button></div>
-      <h3 class="card-title">Relax with Jazz</h3>
-      <p class="card-sub">Sky Luxe</p>
-      <div class="row-between price-row"><span class="price">$5.99</span></div>
-      <button class="btn btn-outline btn-full">Buy Album</button>
+  <div class="grid grid-3">
+    <article class="release-card glass">
+      <div class="release-art">
+        <img src="imgs/jazz-therapy.jpg" alt="Jazz Therapy album cover" loading="lazy">
+        <span class="badge">Album</span>
+        <button class="play-dot" aria-label="Play track"><span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></span></button>
+      </div>
+      <div class="release-row">
+        <div>
+          <h3 class="card-title">Jazz Therapy</h3>
+          <p class="card-sub">Sky Luxe</p>
+        </div>
+        <span class="price">$7.99</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener">Buy</a>
+        <a class="btn btn-outline-muted" href="https://distrokid.com/hyperfollow/skyluxe/jazz-therapy?ref=release" target="_blank" rel="noopener">Listen</a>
+      </div>
     </article>
 
-    <article class="release-card">
-      <div class="release-art placeholder-art"><span class="badge">Single</span><button class="play-dot"><span class="icon-play"></span></button></div>
-      <h3 class="card-title">Soul Snatcher</h3>
-      <p class="card-sub">Sky Luxe</p>
-      <div class="row-between price-row"><span class="price">$1.99</span></div>
-      <button class="btn btn-outline btn-full">Buy Single</button>
+    <article class="release-card glass">
+      <div class="release-art">
+        <img src="imgs/sum-a-rayne.jpg" alt="Sum'a Rayne single cover" loading="lazy">
+        <span class="badge">Single</span>
+        <button class="play-dot" aria-label="Play track"><span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></span></button>
+      </div>
+      <div class="release-row">
+        <div>
+          <h3 class="card-title">Sum'a Rayne</h3>
+          <p class="card-sub">Sky Luxe</p>
+        </div>
+        <span class="price">$1.99</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://paypal.me/ckjkretail/1.99USD" target="_blank" rel="noopener">Buy</a>
+        <a class="btn btn-outline-muted" href="https://distrokid.com/hyperfollow/skyluxe/suma-rayne?ref=release" target="_blank" rel="noopener">Listen</a>
+      </div>
     </article>
 
-    <article class="release-card">
-      <div class="release-art placeholder-art"><span class="badge">Single</span><button class="play-dot"><span class="icon-play"></span></button></div>
-      <h3 class="card-title">Wet-Wet</h3>
-      <p class="card-sub">Sky Luxe</p>
-      <div class="row-between price-row"><span class="price">$1.99</span></div>
-      <button class="btn btn-outline btn-full">Buy Single</button>
+    <article class="release-card glass">
+      <div class="release-art">
+        <img src="imgs/four-season-one-vibe.jpg" alt="Four Seasons, One Vibe EP cover" loading="lazy">
+        <span class="badge">EP</span>
+        <button class="play-dot" aria-label="Play track"><span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></span></button>
+      </div>
+      <div class="release-row">
+        <div>
+          <h3 class="card-title">Four Seasons, One Vibe</h3>
+          <p class="card-sub">Sky Luxe</p>
+        </div>
+        <span class="price">$7.99</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener">Buy</a>
+        <a class="btn btn-outline-muted" href="https://distrokid.com/hyperfollow/skyluxe/four-seasons-one-vibe?ref=release" target="_blank" rel="noopener">Listen</a>
+      </div>
     </article>
 
-    <article class="release-card">
-      <div class="release-art placeholder-art"><span class="badge">Album</span><button class="play-dot"><span class="icon-play"></span></button></div>
-      <h3 class="card-title">Body Collision</h3>
-      <p class="card-sub">Sky Luxe</p>
-      <div class="row-between price-row"><span class="price">$7.99</span></div>
-      <button class="btn btn-outline btn-full">Buy Album</button>
+    <article class="release-card glass">
+      <div class="release-art">
+        <img src="imgs/body-collision.jpg" alt="Body Collision album cover" loading="lazy">
+        <span class="badge">Album</span>
+        <button class="play-dot" aria-label="Play track"><span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></span></button>
+      </div>
+      <div class="release-row">
+        <div>
+          <h3 class="card-title">Body Collision</h3>
+          <p class="card-sub">Sky Luxe</p>
+        </div>
+        <span class="price">$7.99</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener">Buy</a>
+        <a class="btn btn-outline-muted" href="https://distrokid.com/hyperfollow/skyluxe/body-collision?ref=release" target="_blank" rel="noopener">Listen</a>
+      </div>
     </article>
   </div>
 </section>
@@ -84,72 +144,98 @@
 <section class="section" id="vault">
   <p class="eyebrow">The Luxe Vault</p>
   <h2 class="display-lg">Curated Artifacts</h2>
-  <p class="section-note">Each release is a museum piece. Hover to reveal quick-download options — singles or full albums.</p>
+  <p class="section-note-block">Each release is a museum piece. Swipe or scroll to browse — singles, EPs, or full albums.</p>
 
-  <div class="grid grid-4 vault-grid">
-    <article class="vault-card">
-      <div class="vault-art placeholder-art">
-        <button class="play-circle"><span class="icon-play"></span></button>
-      </div>
-      <div class="vault-meta"><span class="tag">Full Album</span><span class="tag-new">New</span></div>
-      <h3 class="card-title">Relax with Jazz</h3>
-      <p class="card-desc">Sometimes a good mellow song without words eases the mind so this ep was produced to calm the mind.</p>
-      <div class="vault-actions">
-        <button class="btn btn-solid"><span class="icon-download"></span>$5.99</button>
-        <button class="icon-btn"><span class="icon-play"></span></button>
-      </div>
-    </article>
+  <div class="vault-scroll">
+    <div class="vault-track">
+      <article class="vault-card glass">
+        <div class="vault-art">
+          <img src="imgs/jazz-therapy.jpg" alt="Jazz Therapy album cover" loading="lazy">
+          <button class="play-circle" aria-label="Play"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+        </div>
+        <div class="vault-body">
+          <div class="vault-meta"><span>Full Album</span><span class="tag-new">New</span></div>
+          <h3 class="card-title">Jazz Therapy</h3>
+          <p class="card-desc">Ten tracks of smooth, sun-soaked jazz built for slowing all the way down — porch sessions, late drives, and everything in between.</p>
+          <div class="vault-actions">
+            <a class="btn btn-solid" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>$7.99</a>
+            <a class="icon-btn" href="https://distrokid.com/hyperfollow/skyluxe/jazz-therapy?ref=release" target="_blank" rel="noopener" aria-label="Listen on Spotify &amp; Apple Music"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3v-7a9 9 0 0 1 18 0v7h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></a>
+            <button class="icon-btn" aria-label="Preview"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+          </div>
+        </div>
+      </article>
 
-    <article class="vault-card">
-      <div class="vault-art placeholder-art">
-        <button class="play-circle"><span class="icon-play"></span></button>
-      </div>
-      <div class="vault-meta"><span class="tag">Single</span><span class="tag-new">New</span></div>
-      <h3 class="card-title">Soul Snatcher</h3>
-      <p class="card-desc">This song describes abilities within the bedroom!</p>
-      <div class="vault-actions">
-        <button class="btn btn-solid"><span class="icon-download"></span>$1.99</button>
-        <button class="icon-btn"><span class="icon-play"></span></button>
-      </div>
-    </article>
+      <article class="vault-card glass">
+        <div class="vault-art">
+          <img src="imgs/sum-a-rayne.jpg" alt="Sum'a Rayne single cover" loading="lazy">
+          <button class="play-circle" aria-label="Play"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+        </div>
+        <div class="vault-body">
+          <div class="vault-meta"><span>Single</span><span class="tag-new">New</span></div>
+          <h3 class="card-title">Sum'a Rayne</h3>
+          <p class="card-desc">A slow-burning R&amp;B groove for rainy nights and warmer moods.</p>
+          <div class="vault-actions">
+            <a class="btn btn-solid" href="https://paypal.me/ckjkretail/1.99USD" target="_blank" rel="noopener"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>$1.99</a>
+            <a class="icon-btn" href="https://distrokid.com/hyperfollow/skyluxe/suma-rayne?ref=release" target="_blank" rel="noopener" aria-label="Listen on Spotify &amp; Apple Music"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3v-7a9 9 0 0 1 18 0v7h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></a>
+            <button class="icon-btn" aria-label="Preview"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+          </div>
+        </div>
+      </article>
 
-    <article class="vault-card">
-      <div class="vault-art placeholder-art">
-        <button class="play-circle"><span class="icon-play"></span></button>
-      </div>
-      <div class="vault-meta"><span class="tag">Single</span><span class="tag-new">New</span></div>
-      <h3 class="card-title">Wet-Wet</h3>
-      <p class="card-desc">This is a passionate song that describes the effects of love.</p>
-      <div class="vault-actions">
-        <button class="btn btn-solid"><span class="icon-download"></span>$1.99</button>
-        <button class="icon-btn"><span class="icon-play"></span></button>
-      </div>
-    </article>
+      <article class="vault-card glass">
+        <div class="vault-art">
+          <img src="imgs/four-season-one-vibe.jpg" alt="Four Seasons, One Vibe EP cover" loading="lazy">
+          <button class="play-circle" aria-label="Play"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+        </div>
+        <div class="vault-body">
+          <div class="vault-meta"><span>EP</span><span class="tag-new">New</span></div>
+          <h3 class="card-title">Four Seasons, One Vibe</h3>
+          <p class="card-desc">Six tracks moving through every season of a relationship — playful, jealous, intimate. Mature content, meant for a grown audience.</p>
+          <div class="vault-actions">
+            <a class="btn btn-solid" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>$7.99</a>
+            <a class="icon-btn" href="https://distrokid.com/hyperfollow/skyluxe/four-seasons-one-vibe?ref=release" target="_blank" rel="noopener" aria-label="Listen on Spotify &amp; Apple Music"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3v-7a9 9 0 0 1 18 0v7h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></a>
+            <button class="icon-btn" aria-label="Preview"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+          </div>
+        </div>
+      </article>
 
-    <article class="vault-card">
-      <div class="vault-art placeholder-art">
-        <button class="play-circle"><span class="icon-play"></span></button>
-      </div>
-      <div class="vault-meta"><span class="tag">Full Album</span><span class="tag-new">New</span></div>
-      <h3 class="card-title">Body Collision</h3>
-      <p class="card-desc">This album is sensual content in a metaphorical manner but it's meant to be listened to by a mature audience.</p>
-      <div class="vault-actions">
-        <button class="btn btn-solid"><span class="icon-download"></span>$7.99</button>
-        <button class="icon-btn"><span class="icon-play"></span></button>
-      </div>
-    </article>
+      <article class="vault-card glass">
+        <div class="vault-art">
+          <img src="imgs/body-collision.jpg" alt="Body Collision album cover" loading="lazy">
+          <button class="play-circle" aria-label="Play"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+        </div>
+        <div class="vault-body">
+          <div class="vault-meta"><span>Full Album</span><span class="tag-new">New</span></div>
+          <h3 class="card-title">Body Collision</h3>
+          <p class="card-desc">This album is sensual content in a metaphorical manner but it's meant to be listened to by a mature audience.</p>
+          <div class="vault-actions">
+            <a class="btn btn-solid" href="https://paypal.me/ckjkretail/7.99USD" target="_blank" rel="noopener"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>$7.99</a>
+            <a class="icon-btn" href="https://distrokid.com/hyperfollow/skyluxe/body-collision?ref=release" target="_blank" rel="noopener" aria-label="Listen on Spotify &amp; Apple Music"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3v-7a9 9 0 0 1 18 0v7h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></a>
+            <button class="icon-btn" aria-label="Preview"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></button>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <section class="section ebook-section">
   <div class="ebook-wrap">
-    <div class="ebook-art placeholder-art">Sky Luxe AI Blueprint</div>
+    <div class="ebook-cover-wrap">
+      <div class="ebook-glow" aria-hidden="true"></div>
+      <div class="ebook-art">
+        <img src="imgs/e-book.jpg" alt="Sky Luxe AI Blueprint ebook cover" loading="lazy">
+      </div>
+    </div>
     <div class="ebook-info">
-      <p class="eyebrow">📖 The Ebook</p>
+      <p class="eyebrow">
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+        The Ebook
+      </p>
       <h2 class="display-lg">Sky Luxe AI Blueprint</h2>
       <p class="card-sub">by Sky Luxe</p>
       <p class="lede-sm">A guide to help start your AI journey as an artist.</p>
-      <button class="btn btn-solid"><span class="icon-download"></span>Download — $8.00</button>
+      <a class="btn btn-solid" href="https://ckjkretail.gumroad.com/l/qsnmvh" target="_blank" rel="noopener noreferrer"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>Download — $8.00</a>
     </div>
   </div>
 </section>
@@ -159,28 +245,34 @@
   <h2 class="display-lg">Spotlight, Only on TikTok</h2>
   <p class="section-note-block">The artists and creators we're amplifying this cycle. Curation authority, not algorithms.</p>
 
-  <div class="grid grid-4 showcase-grid">
-    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/96e432c5f_generated_676fc086.png')">
+  <div class="grid grid-3 showcase-grid">
+    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/96e432c5f_generated_676fc086.png')" tabindex="0">
+      <div class="showcase-glow" aria-hidden="true"></div>
       <div class="showcase-overlay">
-        <span class="featured"><span class="icon-star"></span>Featured</span>
+        <span class="featured"><svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Featured</span>
         <h3 class="card-title">Kano Drift</h3>
         <p class="handle">@kanodrift</p>
+        <div class="showcase-bio"><p>Kano's low-end hits like a storm rolling in. He treats the alley as a studio and the city as an instrument — pure Sky Luxe energy.</p></div>
       </div>
     </article>
 
-    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/09c612bb8_generated_b789ab63.png')">
+    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/09c612bb8_generated_b789ab63.png')" tabindex="0">
+      <div class="showcase-glow" aria-hidden="true"></div>
       <div class="showcase-overlay">
-        <span class="featured"><span class="icon-star"></span>Featured</span>
+        <span class="featured"><svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Featured</span>
         <h3 class="card-title">Luna Solé</h3>
         <p class="handle">@lunasole</p>
+        <div class="showcase-bio"><p>Luna dances the line between gravity and flight. Her rooftop clips are living proof that sound has a body — and a horizon.</p></div>
       </div>
     </article>
 
-    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/1a996a28d_generated_c3cd0643.png')">
+    <article class="showcase-card" style="background-image:url('https://media.base44.com/images/public/6a58b54782d295c05f434c19/1a996a28d_generated_c3cd0643.png')" tabindex="0">
+      <div class="showcase-glow" aria-hidden="true"></div>
       <div class="showcase-overlay">
-        <span class="featured"><span class="icon-star"></span>Featured</span>
+        <span class="featured"><svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Featured</span>
         <h3 class="card-title">Aria Vex</h3>
         <p class="handle">@ariavex</p>
+        <div class="showcase-bio"><p>Aria turns silence into atmosphere — every note lands like light through cloud. Her rooftop sessions feel like the stratosphere dropped to street level.</p></div>
       </div>
     </article>
 
@@ -214,26 +306,29 @@
     </label>
     <label>
       <span class="field-label">Your Invitation</span>
-      <textarea name="message" rows="4" placeholder="Tell us why you belong in the spotlight…"></textarea>
+      <textarea name="message" rows="3" placeholder="Tell us why you belong in the spotlight…" required></textarea>
     </label>
-    <button type="submit" class="btn btn-solid btn-center"><span class="icon-send"></span>Send Invitation</button>
+    <button type="submit" class="btn btn-solid btn-center">
+      <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+      Send Invitation
+    </button>
     <p class="form-status" id="formStatus"></p>
   </form>
 </section>
 
 <footer class="footer">
+  <div class="horizon-fade" aria-hidden="true"></div>
   <span class="dot dot-center"></span>
-  <h2 class="display-xl footer-logo">Sky Luxe</h2>
+  <h2 class="display-xl footer-logo gradient-text">Sky Luxe</h2>
   <p class="eyebrow footer-tag">Sonic Stratosphere</p>
   <nav class="footer-links">
     <a href="#vault">The Vault</a>
     <a href="#showcase">Showcase</a>
     <a href="#guest-list">Guest List</a>
   </nav>
-  <hr>
   <p class="copyright">© 2026 Sky Luxe. All frequencies reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 </html>
