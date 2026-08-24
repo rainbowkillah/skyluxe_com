@@ -32,10 +32,11 @@ A single-page marketing site for **Sky Luxe** — an artist storefront for selli
 skyluxe_com/
 ├─ index.html     Side A — all markup, single page
 ├─ styles.css     The mix — theme tokens, layout, components
-└─ script.js      The rig — mobile nav, scroll CTA, form handling
+├─ script.js      The rig — mobile nav, scroll CTA, form handling
+└─ img/           The liner art — real release/ebook cover images
 ```
 
-No `package.json`, no bundler, no framework. It's a three-track EP.
+No `package.json`, no bundler, no framework. It's a three-track EP with cover art.
 
 ---
 
@@ -95,8 +96,8 @@ This build was diffed line-for-line against the live `skyluxemusic.base44.app` (
 Liner notes for whoever picks this up next:
 
 - **Guest list form is a stub.** [script.js](script.js) intercepts the submit, shows a confirmation message, and resets the form — it does **not** send anywhere yet. Wire it to a real endpoint (a Cloudflare Pages Function, Netlify Form, or any small API) before relying on it to capture invitations. (The live base44 site has the same limitation server-side — it's their auth-gated backend, not something to port.)
-- **Showcase artwork is hot-linked** to `media.base44.com` URLs (see [index.html](index.html)). Those load fine today but the host is base44's — vendor the three images locally before cutting base44 loose entirely.
-- **`.placeholder-art`** in [styles.css](styles.css) is the fallback gradient used for release/vault/ebook art. This isn't a shortcut — **the live site's own cover-art `<img src>` fields are broken**, populated with the tracks' storefront URLs instead of image files (a base44 data-entry bug, confirmed via DevTools: `naturalWidth: 0` on every one). Swap in real cover-art images whenever they're available.
+- **Showcase artwork is still hot-linked** to `media.base44.com` URLs (see [index.html](index.html)). Those load fine today but the host is base44's — vendor those three images locally before cutting base44 loose entirely. (This is the last hot-linked art on the site — release/vault/ebook art is now local, see below.)
+- **Real cover art is wired up.** The four release covers and the ebook cover live in [img/](img/) (`jazz-therapy.jpg`, `sum-a-rayne.jpg`, `four-season-one-vibe.jpg`, `body-collision.jpg`, `e-book.jpg` — all artist-supplied, 800×800 for releases / 1200×1200 for the ebook) and are wired into every release card, vault card, and the ebook cover via `<img>` with `object-fit:cover`. **`.placeholder-art`** in [styles.css](styles.css) is no longer used anywhere but is kept as a fallback gradient class in case a future art slot ships without a real cover.
 - **Catalog was swapped to the current DistroKid releases** (replacing the earlier Relax with Jazz / Soul Snatcher / Wet-Wet lineup — that content is still in git history). Each release/vault card now has two actions:
   - **Buy** → `https://paypal.me/ckjkretail/<amount>USD` (confirmed live PayPal.me handle)
   - **Listen** → the release's DistroKid Hyperfollow page (aggregates Spotify/Apple Music/iTunes)
