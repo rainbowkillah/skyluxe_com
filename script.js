@@ -29,6 +29,50 @@ document.getElementById('enterSoundscape')?.addEventListener('click', () => {
   document.getElementById('new-releases')?.scrollIntoView({ behavior: 'smooth' });
 });
 
+// Vault carousel — the track only supports native trackpad/touch swipe by
+// default. Add a wheel→horizontal fallback and click-drag so it's usable
+// with a plain mouse too (e.g. inside VS Code's Simple Browser/Live Preview,
+// which doesn't forward trackpad gestures).
+const vaultTrack = document.querySelector('.vault-track');
+if (vaultTrack) {
+  vaultTrack.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      vaultTrack.scrollLeft += e.deltaY;
+    }
+  }, { passive: false });
+
+  let isDragging = false;
+  let dragMoved = false;
+  let dragStartX = 0;
+  let scrollStart = 0;
+
+  vaultTrack.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dragMoved = false;
+    dragStartX = e.clientX;
+    scrollStart = vaultTrack.scrollLeft;
+    vaultTrack.classList.add('dragging');
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const delta = e.clientX - dragStartX;
+    if (Math.abs(delta) > 4) dragMoved = true;
+    vaultTrack.scrollLeft = scrollStart - delta;
+  });
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    vaultTrack.classList.remove('dragging');
+  });
+  // Don't let a drag also trigger a click on the buttons/links it passed over.
+  vaultTrack.addEventListener('click', (e) => {
+    if (dragMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+}
+
 // Guest list form — front-end only stub.
 // Replace this with a real endpoint (e.g. a Cloudflare Pages Function / Worker) to actually receive submissions.
 document.getElementById('guestForm')?.addEventListener('submit', function (e) {

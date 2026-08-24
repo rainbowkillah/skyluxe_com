@@ -162,8 +162,9 @@ img,button,input,textarea{font-family:inherit}
 
 /* VAULT — horizontal snap-scroll carousel, matching the live "shelf" */
 .vault-scroll{margin:0 -2.5rem;padding:0 2.5rem}
-.vault-track{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-ms-overflow-style:none;scrollbar-width:none}
+.vault-track{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-ms-overflow-style:none;scrollbar-width:none;cursor:grab}
 .vault-track::-webkit-scrollbar{display:none}
+.vault-track.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
 .vault-card{flex:0 0 78vw;scroll-snap-align:start;border-radius:1.5rem;overflow:hidden;position:relative}
 @media(min-width:640px){.vault-card{flex:0 0 340px}}
 .vault-art{aspect-ratio:1/1;position:relative}
