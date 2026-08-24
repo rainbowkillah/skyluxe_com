@@ -102,7 +102,7 @@ Liner notes for whoever picks this up next:
   - *Wet-Wet* → Apple Music
   - *Body Collision* → Apple Music
   Swap in real cover-art images whenever they're available; the buy links can stay as-is.
-- **Ebook download link is unresolved.** The live site's Gumroad URL is corrupted (`Ckjkretail.gumroad.com/l/qsnmvh` — no protocol, mystery prefix). The button in [index.html](index.html) is left as `href="#"` with a `TODO` comment; drop the real Gumroad/Stripe link in before launch.
+- **Ebook download link is resolved.** The button in [index.html](index.html) now points to the correct Gumroad URL (`https://ckjkretail.gumroad.com/l/qsnmvh`) — the live site's own link is corrupted (missing protocol, mystery `Ckjkretail` prefix), but the working checkout page lives at that path.
 - **No checkout backend.** base44's "Buy"/"Download" buttons open a proprietary **Concierge Checkout** drawer that posts to base44's own Payments API (confirmed by clicking through — it renders a cart summary and a "Pay $X" button backed by their infra). That can't be ported as-is. This build instead links Buy/Download straight out to the real storefronts (Apple Music, SoundCloud, Gumroad) — the honest static-site equivalent. If you want an in-page cart experience on Cloudflare, that's a Worker + Stripe Payment Links / Checkout Sessions project, not a copy-paste.
 - Play/preview buttons across the catalog are visual only — no audio player is wired up (the live site doesn't appear to have real preview clips either).
 
